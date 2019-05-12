@@ -8,7 +8,8 @@ defmodule RabbitMQ2DB.Application do
   def start(_type, _args) do
     # List all child processes to be supervised
     children = [
-      {RabbitMQ2DB.Repo, []}
+      {RabbitMQ2DB.Repo, []},
+      {RabbitMQ2DB.Receiver, []}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
