@@ -8,8 +8,7 @@ defmodule RabbitMQ2DB.Application do
   def start(_type, _args) do
     # List all child processes to be supervised
     children = [
-      # Starts a worker by calling: RabbitMQ2DB.Worker.start_link(arg)
-      # {RabbitMQ2DB.Worker, arg},
+      {RabbitMQ2DB.Repo, []}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
