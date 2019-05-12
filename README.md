@@ -2,6 +2,8 @@
 
 Use together with ftp2rabbitmq, saves data and info to postgres database.
 
+[ftp2rabbitmq](https://github.com/Raphexion/ftp2rabbitmq)
+
 ## Getting Started
 
 Setup the supported services, for example:
