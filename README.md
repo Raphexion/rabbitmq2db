@@ -1,5 +1,7 @@
 # RabbitMQ2DB
 
+Use together with ftp2rabbitmq, saves data and info to postgres database.
+
 ## Getting Started
 
 Setup the supported services, for example:
