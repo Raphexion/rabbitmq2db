@@ -1,13 +1,11 @@
 defmodule RabbitMQ2DB.DataReceiver do
-  require Logger
-
   use GenServer
   alias __MODULE__
 
   alias RabbitMQ2DB.File
   alias RabbitMQ2DB.Repo
 
-  @ftpdata       "ftpdata"
+  @exchange      "ftpdata"
   @random_queue  ""
   @all           "#"
 
@@ -25,7 +23,7 @@ defmodule RabbitMQ2DB.DataReceiver do
 
   @impl true
   def init(nil) do
-    :kiks_consumer_sup.add_child(@ftpdata, @random_queue, @all, :send, self())
+    :kiks_consumer_sup.add_child(@exchange, @random_queue, @all, :send, self())
     {:ok, 0}
   end
 
