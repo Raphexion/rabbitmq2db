@@ -24,7 +24,8 @@ defmodule RabbitMQ2DB.MixProject do
     [
       {:ecto_sql, "~> 3.0"},
       {:postgrex, ">= 0.0.0"},
-      {:kiks, git: "git://github.com/Raphexion/kiks.git"}
+      {:kiks, git: "git://github.com/Raphexion/kiks.git"},
+      {:poison, "~> 4.0"}
     ]
   end
 end
