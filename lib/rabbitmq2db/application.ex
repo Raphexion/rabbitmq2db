@@ -9,7 +9,7 @@ defmodule RabbitMQ2DB.Application do
     # List all child processes to be supervised
     children = [
       {RabbitMQ2DB.Repo, []},
-      {RabbitMQ2DB.Receiver, []}
+      {RabbitMQ2DB.DataReceiver, []}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

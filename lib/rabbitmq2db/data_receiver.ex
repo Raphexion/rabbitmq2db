@@ -1,4 +1,4 @@
-defmodule RabbitMQ2DB.Receiver do
+defmodule RabbitMQ2DB.DataReceiver do
   require Logger
 
   use GenServer
