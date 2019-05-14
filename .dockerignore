@@ -1,0 +1,14 @@
+# Ignore everything
+/*
+
+# Exceptions
+# lib
+!/lib
+# rel config
+!/rel
+# config
+!/config
+# mix files
+!/mix.exs
+!/mix.lock
+!/priv
