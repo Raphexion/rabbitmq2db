@@ -6,7 +6,7 @@ defmodule RabbitMQ2DB.DataReceiver do
   alias RabbitMQ2DB.Repo
 
   @exchange      "ftpdata"
-  @random_queue  ""
+  @queue         "dataqueue"
   @all           "#"
 
   def start_link([]) do
@@ -23,7 +23,7 @@ defmodule RabbitMQ2DB.DataReceiver do
 
   @impl true
   def init(nil) do
-    :kiks_consumer_sup.add_child(@exchange, @random_queue, @all, :send, self())
+    :kiks_consumer_sup.add_child(@exchange, @queue, @all, :send, self())
     {:ok, 0}
   end
 
@@ -33,7 +33,7 @@ defmodule RabbitMQ2DB.DataReceiver do
   end
 
   @impl true
-  def handle_info({sender, tag, pid, payload, routing_key}, state) do
+  def handle_info({sender, _tag, _pid, payload, _routing_key}, state) do
     hash = payload |> :kiks_support.hash() |> to_string()
 
     %File{data: payload, hash: hash}

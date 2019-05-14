@@ -6,7 +6,7 @@ defmodule RabbitMQ2DB.InfoReceiver do
   alias RabbitMQ2DB.Repo
 
   @exchange      "ftpinfo"
-  @random_queue  ""
+  @queue         "infoqueue"
   @all           "#"
 
   def start_link([]) do
@@ -23,7 +23,7 @@ defmodule RabbitMQ2DB.InfoReceiver do
 
   @impl true
   def init(nil) do
-    :kiks_consumer_sup.add_child(@exchange, @random_queue, @all, :send, self())
+    :kiks_consumer_sup.add_child(@exchange, @queue, @all, :send, self())
     {:ok, 0}
   end
 
