@@ -1,6 +1,5 @@
 defmodule RabbitMQ2DB.InfoReceiver do
   use GenServer
-  alias __MODULE__
 
   alias RabbitMQ2DB.Info
   alias RabbitMQ2DB.Repo
@@ -33,7 +32,7 @@ defmodule RabbitMQ2DB.InfoReceiver do
   end
 
   @impl true
-  def handle_info({sender, tag, pid, payload, routing_key}, state) do
+  def handle_info({sender, _tag, _pid, payload, _routing_key}, state) do
     data = Poison.decode!(payload) |> fix_strings()
 
     %Info{}

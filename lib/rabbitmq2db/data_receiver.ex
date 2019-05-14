@@ -1,6 +1,5 @@
 defmodule RabbitMQ2DB.DataReceiver do
   use GenServer
-  alias __MODULE__
 
   alias RabbitMQ2DB.File
   alias RabbitMQ2DB.Repo
