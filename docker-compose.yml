@@ -1,0 +1,53 @@
+version: '3'
+services:
+  mq:
+    image: rabbitmq:3.7-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:15672"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+
+  db:
+    image: postgres
+    ports:
+      - "5432:5432"
+
+  dbcreator:
+    image: postgres
+    command: |
+      psql --host=db --user=postgres -c 'create database rabbitmq2db_repo';
+    links:
+      - db
+    depends_on:
+      - db
+
+  ftpserver:
+    image: raphexion/ftp2rabbitmq
+    restart: on-failure
+    ports:
+      - "2121:2121"
+    environment:
+      - rabbitmq_hostname=mq
+    links:
+      - mq
+    depends_on:
+      - mq
+
+  storer:
+    image: rabbitmq2db:latest
+    restart: on-failure
+    environment:
+      - rabbitmq_hostname=mq
+      - DB_USER=postgres
+      - DB_PASS=postgres
+      - DB_HOST=db
+    links:
+      - mq
+      - db
+    depends_on:
+      - mq
+      - db
