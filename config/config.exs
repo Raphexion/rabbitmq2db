@@ -7,9 +7,9 @@ config :rabbitmq2db,
 
 config :rabbitmq2db, RabbitMQ2DB.Repo,
   database: "rabbitmq2db_repo",
-  username: "postgres",
-  password: "postgres",
-  hostname: "localhost"
+  username: System.get_env("DB_USER") || "postgres",
+  password: System.get_env("DB_PASS") || "postgres",
+  hostname: System.get_env("DB_HOST") || "localhost"
 
 # This configuration is loaded before any dependency and is restricted
 # to this project. If another project depends on this project, this
@@ -36,4 +36,4 @@ config :rabbitmq2db, RabbitMQ2DB.Repo,
 # Configuration from the imported file will override the ones defined
 # here (which is why it is important to import them last).
 #
-import_config "#{Mix.env()}.exs"
+#     import_config "#{Mix.env()}.exs"
