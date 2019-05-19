@@ -38,7 +38,7 @@ services:
       - mq
 
   storer:
-    image: rabbitmq2db:latest
+    image: raphexion/rabbitmq2db
     restart: on-failure
     environment:
       - rabbitmq_hostname=mq
