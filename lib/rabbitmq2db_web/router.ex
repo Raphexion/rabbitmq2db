@@ -5,7 +5,14 @@ defmodule RabbitMQ2DBWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", RabbitMQ2DBWeb do
+  scope "/" do
     pipe_through :api
+
+    forward "/api", Absinthe.Plug,
+      schema: RabbitMQ2DBWeb.Schema
+
+    forward "/graphiql", Absinthe.Plug.GraphiQL,
+      schema: RabbitMQ2DBWeb.Schema,
+      interface: :simple
   end
 end
