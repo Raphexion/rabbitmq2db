@@ -15,10 +15,10 @@ FROM alpine:latest
 ENV REPLACE_OS_VARS=true
 ENV MIX_ENV=prod
 ENV PORT=4000
-ENV DATABASE_USERNAME="postgres"
-ENV DATABASE_PASSWORD="postgres"
-ENV DATABASE_NAME="rabbitmq2db"
-ENV DATABASE_HOST="127.0.0.1"
+ENV DB_USER="postgres"
+ENV DB_PASS="postgres"
+ENV DB_NAME="rabbitmq2db"
+ENV DB_HOST="127.0.0.1"
 
 RUN apk --no-cache add --upgrade bash openssl-dev unzip
 
