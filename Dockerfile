@@ -19,6 +19,7 @@ ENV DB_USER="postgres"
 ENV DB_PASS="postgres"
 ENV DB_NAME="rabbitmq2db"
 ENV DB_HOST="127.0.0.1"
+ENV SECRET_KEY_BASE="cPWyauf24VMnMaPpI4UVaNfct+LCktDeraZ25/KQIzr7fODL1q0nziOkjI/hzCqn"
 
 RUN apk --no-cache add --upgrade bash openssl-dev unzip
 

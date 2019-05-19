@@ -69,6 +69,9 @@ config :logger, level: :info
 # Finally import the config/prod.secret.exs which should be versioned
 # separately.
 
+config :rabbitmq2db, RabbitMQ2DBWeb.Endpoint,
+  secret_key_base: System.get_env("SECRET_KEY_BASE")
+
 config :rabbitmq2db,
   ecto_repos: [RabbitMQ2DB.Repo]
 
