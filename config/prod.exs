@@ -68,4 +68,12 @@ config :logger, level: :info
 
 # Finally import the config/prod.secret.exs which should be versioned
 # separately.
-import_config "prod.secret.exs"
+
+config :rabbitmq2db,
+  ecto_repos: [RabbitMQ2DB.Repo]
+
+config :rabbitmq2db, RabbitMQ2DB.Repo,
+  database: "rabbitmq2db_repo",
+  username: System.get_env("DB_USER") || "postgres",
+  password: System.get_env("DB_PASS") || "postgres",
+  hostname: System.get_env("DB_HOST") || "localhost"
