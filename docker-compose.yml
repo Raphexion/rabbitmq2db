@@ -40,6 +40,8 @@ services:
   storer:
     image: raphexion/rabbitmq2db
     restart: on-failure
+    ports:
+      - "4000:4000"
     environment:
       - rabbitmq_hostname=mq
       - DB_USER=postgres
