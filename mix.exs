@@ -43,7 +43,11 @@ defmodule RabbitMQ2DB.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:kiks, git: "git://github.com/Raphexion/kiks.git"},
       {:poison, "~> 4.0"},
-      {:distillery, "~> 2.0"}
+      {:distillery, "~> 2.0"},
+      {:absinthe, "~> 1.4.2"},
+      {:absinthe_plug, "~> 1.4.0"},
+      {:absinthe_phoenix, "~> 1.4.0"},
+      {:absinthe_relay, "~> 1.4.0"},
     ]
   end
 
